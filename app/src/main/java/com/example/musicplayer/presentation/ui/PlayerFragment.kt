@@ -121,23 +121,6 @@ class PlayerFragment : Fragment() {
      * @param state The current state of the player.
      */
     private fun updateUI(state: PlayerState) {
-        binding.trackTitle.text = state.track.title
-        binding.trackArtist.text = state.track.artistName
-
-        // Show album title if available
-        if (
-            state.track.album != null
-        ) {
-            binding.albumTitle.visibility = View.VISIBLE
-            binding.albumTitle.text = state.track.album
-        } else binding.albumTitle.visibility = View.GONE
-
-        // Load album cover image
-        Glide.with(this)
-            .load(state.track.albumPicBig)
-            .error(R.drawable.img_1)
-            .apply(RequestOptions.bitmapTransform(RoundedCorners(16)))
-            .into(binding.albumCover)
 
         // Update seek bar and time labels
         binding.seekBar.max = state.duration
@@ -152,6 +135,28 @@ class PlayerFragment : Fragment() {
         val playPauseIcon =
             if (state.isPlaying) R.drawable.outline_pause_circle_24 else R.drawable.outline_play_circle_24
         binding.btnPlayPause.setImageResource(playPauseIcon)
+
+        if (binding.trackTitle.text != state.track.title ||
+            binding.trackArtist.text != state.track.artistName
+        ) {
+            binding.trackTitle.text = state.track.title
+            binding.trackArtist.text = state.track.artistName
+
+            // Show album title if available
+            if (
+                state.track.album != null
+            ) {
+                binding.albumTitle.visibility = View.VISIBLE
+                binding.albumTitle.text = state.track.album
+            } else binding.albumTitle.visibility = View.GONE
+
+            // Load album cover image
+            Glide.with(this)
+                .load(state.track.albumPicBig)
+                .error(R.drawable.img_1)
+                .apply(RequestOptions.bitmapTransform(RoundedCorners(16)))
+                .into(binding.albumCover)
+        }
     }
 
     /**
