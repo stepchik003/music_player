@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Music Player</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_api">Треки из интернета</string>
+    <string name="title_local">Скачанные треки</string>
+
+    <string name="track_name">Название трека</string>
+    <string name="artist_name">Исполнитель</string>
+    <string name="album_name">Название альбома</string>
+
+    <string name="find_track">Найти треки...</string>
 </resources>

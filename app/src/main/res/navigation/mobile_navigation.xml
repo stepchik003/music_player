@@ -3,18 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_api">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.musicplayer.presentation.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_api"
+        android:name="com.example.musicplayer.presentation.ui.ApiTracksFragment"
+        android:label="@string/title_api"
+        tools:layout="@layout/fragment_tracks" >
+        <action
+            android:id="@+id/action_to_player"
+            app:destination="@id/navigation_player"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_down"
+            app:popEnterAnim="@anim/slide_up"
+            app:popExitAnim="@anim/slide_down"/>
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.musicplayer.presentation.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_local"
+        android:name="com.example.musicplayer.presentation.ui.LocalTracksFragment"
+        android:label="@string/title_local"
+        tools:layout="@layout/fragment_tracks">
+        <action
+            android:id="@+id/action_to_player"
+            app:destination="@id/navigation_player"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_down"
+            app:popEnterAnim="@anim/slide_up"
+            app:popExitAnim="@anim/slide_down"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_player"
+        android:name="com.example.musicplayer.presentation.ui.PlayerFragment"
+        android:label="Player"
+        tools:layout="@layout/fragment_player"/>
+
 
 </navigation>
