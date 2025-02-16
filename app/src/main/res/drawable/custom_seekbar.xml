@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/seekbar_progress.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape>
+            <solid android:color="#CCCCCC" /> <!-- Цвет фона -->
+            <corners android:radius="4dp" /> <!-- Закругленные углы -->
+        </shape>
+    </item>
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <solid android:color="@color/primary" /> <!-- Цвет прогресса -->
+                <corners android:radius="4dp" /> <!-- Закругленные углы -->
+            </shape>
+        </clip>
+    </item>
+</layer-list>

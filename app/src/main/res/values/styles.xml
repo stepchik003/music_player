@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomSeekBar">
+        <item name="android:progressDrawable">@drawable/custom_seekbar</item> <!-- Прогресс -->
+        <item name="android:thumb">@drawable/custom_thumb</item> <!-- Ползунок -->
+        <item name="android:minHeight">8dp</item> <!-- Минимальная высота -->
+        <item name="android:maxHeight">8dp</item> <!-- Максимальная высота -->
+        <item name="android:paddingStart">0dp</item> <!-- Отступы -->
+        <item name="android:paddingEnd">0dp</item>
+    </style>
+</resources>
