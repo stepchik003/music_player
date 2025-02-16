@@ -7,4 +7,22 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="primary">#4A90E2</color>  <!-- Основной (нежно-синий) -->
+    <color name="primaryVariant">#357ABD</color>  <!-- Темнее для выделений -->
+    <color name="secondary">#F5A623</color>  <!-- Акцентный (теплый оранжевый) -->
+
+    <color name="background">#F2F2F7</color>  <!-- Светлый фон -->
+    <color name="surface">#FFFFFF</color>  <!-- Для карточек и панелей -->
+    <color name="onPrimary">#FFFFFF</color>  <!-- Цвет текста на основном цвете -->
+    <color name="onSecondary">#000000</color>
+
+    <color name="primaryNight">#1E3A5F</color>  <!-- Темный синий -->
+    <color name="primaryVariantNight">#142B46</color>  <!-- Чуть темнее -->
+    <color name="secondaryNight">#FFA726</color>  <!-- Тёплый оранжевый, более яркий -->
+
+    <color name="backgroundNight">#121212</color>  <!-- Темный фон -->
+    <color name="surfaceNight">#1E1E1E</color>  <!-- Для карточек и панелей -->
+    <color name="onPrimaryNight">#FFFFFF</color>  <!-- Текст на основном -->
+    <color name="onSecondaryNight">#FFFFFF</color>
 </resources>
