@@ -1,6 +1,6 @@
 # Music Player App - Тестовое задание для стажёра Android-направления (зимняя волна 2025)
 
-## Запуска проекта
+## Запуск проекта
 1. Клонировать репозиторий:
       git clone https://github.com/stepchik003/music_player.git
       cd music_player
