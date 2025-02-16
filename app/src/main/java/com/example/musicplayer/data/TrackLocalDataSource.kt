@@ -79,30 +79,29 @@ class TrackLocalDataSource @Inject constructor(
         return tracks
     }
 
-
     private fun getAlbumArtUri(albumId: Long): Uri? {
-        val collection = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            val collection = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            val projection = arrayOf(MediaStore.Images.Media._ID)
+            val selection = "${MediaStore.Images.Media.RELATIVE_PATH} LIKE ?"
+            val selectionArgs = arrayOf("%Music/Album Covers/$albumId%")
+
+            context.contentResolver.query(
+                collection, projection, selection, selectionArgs, null
+            )?.use { cursor ->
+                if (cursor.moveToFirst()) {
+                    val idColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID)
+                    val imageId = cursor.getLong(idColumn)
+                    return ContentUris.withAppendedId(
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                        imageId
+                    )
+                }
+            }
+            null
         } else {
             Uri.parse("content://media/external/audio/albumart/$albumId")
         }
-
-        val projection = arrayOf(MediaStore.Images.Media._ID)
-        val selection = "${MediaStore.Images.Media.RELATIVE_PATH} LIKE ?"
-        val selectionArgs = arrayOf("%Music/Album Covers/$albumId%")
-
-        context.contentResolver.query(
-            collection, projection, selection, selectionArgs, null
-        )?.use { cursor ->
-            if (cursor.moveToFirst()) {
-                val idColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID)
-                val imageId = cursor.getLong(idColumn)
-                return ContentUris.withAppendedId(
-                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                    imageId
-                )
-            }
-        }
-        return null
     }
+
 }

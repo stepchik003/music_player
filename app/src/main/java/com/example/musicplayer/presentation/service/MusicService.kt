@@ -308,25 +308,22 @@ class MusicService : Service() {
         )
 
         var albumPic: Bitmap? = null
-        if (!playlist[currentPosition].isLocal) {
-            Glide.with(this)
-                .asBitmap()
-                .load(playlist[currentPosition].albumPicBig)
-                .into(object : CustomTarget<Bitmap>() {
-                    override fun onResourceReady(
-                        resource: Bitmap,
-                        transition: Transition<in Bitmap>?
-                    ) {
-                        albumPic = resource
-                    }
 
-                    override fun onLoadCleared(placeholder: Drawable?) {
-                        albumPic = BitmapFactory.decodeResource(resources, R.drawable.img_1)
-                    }
-                })
-        } else {
-            albumPic = BitmapFactory.decodeResource(resources, R.drawable.img_1)
-        }
+        Glide.with(this)
+            .asBitmap()
+            .load(playlist[currentPosition].albumPicBig)
+            .into(object : CustomTarget<Bitmap>() {
+                override fun onResourceReady(
+                    resource: Bitmap,
+                    transition: Transition<in Bitmap>?
+                ) {
+                    albumPic = resource
+                }
+
+                override fun onLoadCleared(placeholder: Drawable?) {
+                    albumPic = BitmapFactory.decodeResource(resources, R.drawable.img_1)
+                }
+            })
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.img)
             .setContentTitle(playlist[currentPosition].title)
